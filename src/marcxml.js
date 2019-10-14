@@ -54,7 +54,7 @@ export class Reader extends Readable {
 export function to(record, {omitDeclaration = false} = {}) {
 	const serializer = new XMLSerializer();
 	const doc = new DOMImplementation().createDocument();
-	const xmlRecord = mkElement('record');
+	const xmlRecord = doc.createElementNS('http://www.loc.gov/MARC21/slim', 'record');
 	const leader = mkElementValue('leader', record.leader);
 
 	xmlRecord.appendChild(leader);
